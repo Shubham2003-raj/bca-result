@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Examination Result</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background-color: #f7f7f7;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    .result {
+        margin-top: 20px;
+        display: none;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+    table, th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>BCA 1st Semester Examination Result 2024</h2>
+    <label for="rollNumber">Enter Roll Number:</label>
+    <input type="text" id="rollNumber" placeholder="e.g., 24303302129">
+    <button onclick="showResult()">View Result</button>
+
+    <div class="result" id="resultDiv">
+        <h3>Student Details</h3>
+        <p><strong>Student Name:</strong> SHUBHAM RAJ</p>
+        <p><strong>Father's Name:</strong> SARVJEET KUMAR</p>
+        <p><strong>Mother's Name:</strong> MANORMA DEVI</p>
+        <p><strong>College:</strong> DIGHA, PATNA</p>
+        <p><strong>Course:</strong> BACHELOR OF COMPUTER APPLICATION</p>
+
+        <h3>Subject Wise Marks</h3>
+        <table>
+            <tr>
+                <th>Subject Name</th>
+                <th>IA</th>
+                <th>ESE</th>
+                <th>Total</th>
+                <th>Grade</th>
+                <th>Credit</th>
+            </tr>
+            <tr>
+                <td>COMMUNICATIVE ENGLISH</td>
+                <td>25</td>
+                <td>37</td>
+                <td>62</td>
+                <td>B</td>
+                <td>4.00</td>
+            </tr>
+            <tr>
+                <td>BASIC MATHEMATICS</td>
+                <td>23</td>
+                <td>40</td>
+                <td>63</td>
+                <td>C</td>
+                <td>5.00</td>
+            </tr>
+            <tr>
+                <td>INFORMATION TECHNOLOGY & APPLICATION</td>
+                <td>20</td>
+                <td>46</td>
+                <td>66</td>
+                <td>C</td>
+                <td>4.00</td>
+            </tr>
+            <tr>
+                <td>IT PRACTICAL</td>
+                <td>20</td>
+                <td>25</td>
+                <td>45</td>
+                <td>A+</td>
+                <td>2.00</td>
+            </tr>
+            <tr>
+                <td>PRINCIPLES OF MANAGEMENT & ORGANIZATION</td>
+                <td>20</td>
+                <td>52</td>
+                <td>72</td>
+                <td>B</td>
+                <td>5.00</td>
+            </tr>
+            <tr>
+                <td>PYTHON PROGRAMMING</td>
+                <td>11</td>
+                <td>34</td>
+                <td>45</td>
+                <td>P</td>
+                <td>2.00</td>
+            </tr>
+        </table>
+
+        <p><strong>SGPA:</strong> 7.79</p>
+        <p><strong>Remarks:</strong> Pass</p>
+    </div>
+</div>
+
+<script>
+function showResult() {
+    const rollNumber = document.getElementById('rollNumber').value;
+    if (rollNumber === "24303302129") { // your roll number
+        document.getElementById('resultDiv').style.display = 'block';
+    } else {
+        alert("Result not found for this Roll Number.");
+        document.getElementById('resultDiv').style.display = 'none';
+    }
+}
+</script>
+
+</body>
+</html>
