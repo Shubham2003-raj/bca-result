@@ -24,7 +24,7 @@
         Aryabhatta Knowledge University
     </span>
 </div>
-<h2>BCA 1st Semester Examination Result 2024</h2>
+<h2 id="semesterTitle">BCA Examination Result</h2>
 
 
     h2 {
@@ -76,19 +76,115 @@
         Aryabhatta Knowledge University
         </div>
     <h2>BCA 1st Semester Examination Result 2024</h2>
+    <label for="semester">Select Semester:</label>
+
+<select id="semester">
+    <option value="sem1">1st Semester</option>
+    <option value="sem2">2nd Semester</option>
+</select>
+
+<br><br>
     <label for="rollNumber">Enter Roll Number:</label>
     <input type="text" id="rollNumber">
     <button onclick="showResult()">View Result</button>
 
-    <div class="result" id="resultDiv">
+   <div class="result" id="resultDiv"></div>
+
+<script>
+
+const results = {
+
+    sem1: {
+        roll: "24303302129",
+        studentName: "SHUBHAM RAJ",
+        fatherName: "SARVJEET KUMAR",
+        motherName: "MANORMA DEVI",
+        college: "DIGHA, PATNA",
+        course: "BACHELOR OF COMPUTER APPLICATION",
+        sgpa: "7.79",
+        remarks: "Pass",
+
+        subjects: [
+            ["COMMUNICATIVE ENGLISH",25,37,62,"B",4],
+            ["BASIC MATHEMATICS",23,40,63,"C",5],
+            ["INFORMATION TECHNOLOGY & APPLICATION",20,46,66,"C",4],
+            ["IT PRACTICAL",20,25,45,"A+",2],
+            ["PRINCIPLES OF MANAGEMENT & ORGANIZATION",20,52,72,"B",5],
+            ["PYTHON PROGRAMMING",11,34,45,"P",2]
+        ]
+    },
+
+    sem2: {
+        roll: "24303302129",
+        studentName: "SHUBHAM RAJ",
+        fatherName: "SARVJEET KUMAR",
+        motherName: "MANORMA DEVI",
+        college: "DIGHA, PATNA",
+        course: "BACHELOR OF COMPUTER APPLICATION",
+        sgpa: "8.10",
+        remarks: "Pass",
+
+        subjects: [
+            ["DATA STRUCTURE",24,45,69,"B",5],
+            ["DBMS",22,40,62,"B",5],
+            ["OPERATING SYSTEM",20,42,62,"B",4],
+            ["OS PRACTICAL",23,25,48,"A+",2],
+            ["DIGITAL LOGIC",21,39,60,"B",4],
+            ["C PROGRAMMING",25,50,75,"A",5]
+        ]
+    }
+
+};
+
+function showResult() {
+
+    const rollNumber = document.getElementById('rollNumber').value;
+
+    const semester = document.getElementById('semester').value;
+
+    const resultDiv = document.getElementById('resultDiv');
+
+    const data = results[semester];
+
+    if (rollNumber === data.roll) {
+
+        document.getElementById('semesterTitle').innerText =
+            semester === "sem1"
+            ? "BCA 1st Semester Examination Result 2024"
+            : "BCA 2nd Semester Examination Result 2025";
+
+        let subjectRows = "";
+
+        data.subjects.forEach(sub => {
+
+            subjectRows += `
+            <tr>
+                <td>${sub[0]}</td>
+                <td>${sub[1]}</td>
+                <td>${sub[2]}</td>
+                <td>${sub[3]}</td>
+                <td>${sub[4]}</td>
+                <td>${sub[5]}</td>
+            </tr>
+            `;
+        });
+
+        resultDiv.innerHTML = `
+
         <h3>Student Details</h3>
-        <p><strong>Student Name:</strong> SHUBHAM RAJ</p>
-        <p><strong>Father's Name:</strong> SARVJEET KUMAR</p>
-        <p><strong>Mother's Name:</strong> MANORMA DEVI</p>
-        <p><strong>College:</strong> DIGHA, PATNA</p>
-        <p><strong>Course:</strong> BACHELOR OF COMPUTER APPLICATION</p>
+
+        <p><strong>Student Name:</strong> ${data.studentName}</p>
+
+        <p><strong>Father's Name:</strong> ${data.fatherName}</p>
+
+        <p><strong>Mother's Name:</strong> ${data.motherName}</p>
+
+        <p><strong>College:</strong> ${data.college}</p>
+
+        <p><strong>Course:</strong> ${data.course}</p>
 
         <h3>Subject Wise Marks</h3>
+
         <table>
             <tr>
                 <th>Subject Name</th>
@@ -98,71 +194,27 @@
                 <th>Grade</th>
                 <th>Credit</th>
             </tr>
-            <tr>
-                <td>COMMUNICATIVE ENGLISH</td>
-                <td>25</td>
-                <td>37</td>
-                <td>62</td>
-                <td>B</td>
-                <td>4.00</td>
-            </tr>
-            <tr>
-                <td>BASIC MATHEMATICS</td>
-                <td>23</td>
-                <td>40</td>
-                <td>63</td>
-                <td>C</td>
-                <td>5.00</td>
-            </tr>
-            <tr>
-                <td>INFORMATION TECHNOLOGY & APPLICATION</td>
-                <td>20</td>
-                <td>46</td>
-                <td>66</td>
-                <td>C</td>
-                <td>4.00</td>
-            </tr>
-            <tr>
-                <td>IT PRACTICAL</td>
-                <td>20</td>
-                <td>25</td>
-                <td>45</td>
-                <td>A+</td>
-                <td>2.00</td>
-            </tr>
-            <tr>
-                <td>PRINCIPLES OF MANAGEMENT & ORGANIZATION</td>
-                <td>20</td>
-                <td>52</td>
-                <td>72</td>
-                <td>B</td>
-                <td>5.00</td>
-            </tr>
-            <tr>
-                <td>PYTHON PROGRAMMING</td>
-                <td>11</td>
-                <td>34</td>
-                <td>45</td>
-                <td>P</td>
-                <td>2.00</td>
-            </tr>
+
+            ${subjectRows}
+
         </table>
 
-        <p><strong>SGPA:</strong> 7.79</p>
-        <p><strong>Remarks:</strong> Pass</p>
-    </div>
-</div>
+        <p><strong>SGPA:</strong> ${data.sgpa}</p>
 
-<script>
-function showResult() {
-    const rollNumber = document.getElementById('rollNumber').value;
-    if (rollNumber === "24303302129") { // your roll number
-        document.getElementById('resultDiv').style.display = 'block';
+        <p><strong>Remarks:</strong> ${data.remarks}</p>
+
+        `;
+
+        resultDiv.style.display = 'block';
+
     } else {
-        alert("Result not found for this Roll Number.");
-        document.getElementById('resultDiv').style.display = 'none';
+
+        alert("Result not found.");
+
+        resultDiv.style.display = 'none';
     }
 }
+
 </script>
 
 </body>
