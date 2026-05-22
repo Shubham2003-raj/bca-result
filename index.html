@@ -4,157 +4,222 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Examination Result</title>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 30px;
-        background-color: #f7f7f7;
-    }
-    .container {
-        max-width: 800px;
-        margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #f7f7f7;
+}
 
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    button {
-        padding: 10px 20px;
-        border: none;
-        background-color: #4CAF50;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: #45a049;
-    }
-    .result {
-        margin-top: 20px;
-        display: none;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-    }
-    table, th, td {
-        border: 1px solid #ccc;
-        padding: 8px;
-        text-align: center;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.result {
+    margin-top: 20px;
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo-section img {
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.logo-section span {
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
 </style>
 </head>
+
 <body>
 
-<div style="text-align:center; margin-bottom:10px;">
-    <img src="logo.png" alt="University Logo" style="height:50px; vertical-align:middle; margin-right:10px;">
+<div class="container">
 
-    <span style="text-transform:uppercase; font-size:35px; font-weight:bold; vertical-align:middle;">
+<div class="logo-section">
+    <img src="logo.png" alt="University Logo">
+
+    <span>
         Aryabhatta Knowledge University
     </span>
 </div>
 
 <h2 id="semesterTitle">BCA Examination Result</h2>
-    <label for="semester">Select Semester:</label>
+
+<label for="semester">Select Semester:</label>
 
 <select id="semester">
     <option value="sem1">1st Semester</option>
     <option value="sem2">2nd Semester</option>
 </select>
 
-<br><br>
-    <label for="rollNumber">Enter Roll Number:</label>
-    <input type="text" id="rollNumber">
-    <button onclick="showResult()">View Result</button>
+<label for="rollNumber">Enter Roll Number:</label>
 
-   <div class="result" id="resultDiv"></div>
+<input type="text" id="rollNumber" placeholder="Enter Roll Number">
+
+<button onclick="showResult()">View Result</button>
+
+<div class="result" id="resultDiv"></div>
+
+<br><br>
+
+<h2>Semester SGPA & CGPA</h2>
+
+<table>
+    <tr>
+        <th>SGPA 1</th>
+        <th>SGPA 2</th>
+        <th>SGPA 3</th>
+        <th>SGPA 4</th>
+        <th>SGPA 5</th>
+        <th>SGPA 6</th>
+        <th>CGPA</th>
+    </tr>
+
+    <tr>
+        <td>7.79</td>
+        <td>8.56</td>
+        <td>--</td>
+        <td>--</td>
+        <td>--</td>
+        <td>--</td>
+        <td>8.18</td>
+    </tr>
+</table>
+
+</div>
 
 <script>
 
 const results = {
 
     sem1: {
+
         roll: "24303302129",
+
         studentName: "SHUBHAM RAJ",
+
         fatherName: "SARVJEET KUMAR",
+
         motherName: "MANORMA DEVI",
+
         college: "DIGHA, PATNA",
+
         course: "BACHELOR OF COMPUTER APPLICATION",
+
         sgpa: "7.79",
+
         remarks: "Pass",
 
         subjects: [
+
             ["COMMUNICATIVE ENGLISH",25,37,62,"B",4],
+
             ["BASIC MATHEMATICS",23,40,63,"C",5],
+
             ["INFORMATION TECHNOLOGY & APPLICATION",20,46,66,"C",4],
+
             ["IT PRACTICAL",20,25,45,"A+",2],
+
             ["PRINCIPLES OF MANAGEMENT & ORGANIZATION",20,52,72,"B",5],
+
             ["PYTHON PROGRAMMING",11,34,45,"P",2]
+
         ]
     },
 
     sem2: {
+
         roll: "24303302129",
+
         studentName: "SHUBHAM RAJ",
+
         fatherName: "SARVJEET KUMAR",
+
         motherName: "MANORMA DEVI",
+
         college: "DIGHA, PATNA",
+
         course: "BACHELOR OF COMPUTER APPLICATION",
+
         sgpa: "8.56",
+
         remarks: "Pass",
 
         subjects: [
+
             ["BUSINESS ENGLISH",24,51,75,"A",4],
+
             ["MATHEMATICS",23,49,72,"A",5],
+
             ["PROGRAMMING IN C",22,44,66,"B+",5],
+
             ["OPERATING SYSTEM & UNIX",25,53,78,"A+",5],
+
             ["SYSTEM ANALYSIS",21,46,67,"B+",4],
-            ["OPERATING SYSTEM & UNIX P",18,20,38,"B",2],
-            ["PROGRAMMING IN C P",17,19,36,"B",2],
-            
-        <br><br>
 
-<h2>Semester SGPA & CGPA</h2>
+            ["OPERATING SYSTEM & UNIX PRACTICAL",18,20,38,"B",2],
 
-<table border="1" cellspacing="0" cellpadding="15" width="100%">
-  <tr>
-    <th>SGPA 1</th>
-    <th>SGPA 2</th>
-    <th>SGPA 3</th>
-    <th>SGPA 4</th>
-    <th>SGPA 5</th>
-    <th>SGPA 6</th>
-    <th>CGPA</th>
-  </tr>
+            ["PROGRAMMING IN C PRACTICAL",17,19,36,"B",2]
 
-  <tr align="center">
-    <td>7.79</td>
-    <td>8.56</td>
-    <td>--</td>
-    <td>--</td>
-    <td>--</td>
-    <td>--</td>
-    <td>8.18</td>
-  </tr>
-</table>
         ]
     }
 
@@ -162,26 +227,30 @@ const results = {
 
 function showResult() {
 
-    const rollNumber = document.getElementById('rollNumber').value;
+    const rollNumber = document.getElementById("rollNumber").value.trim();
 
-    const semester = document.getElementById('semester').value;
+    const semester = document.getElementById("semester").value;
 
-    const resultDiv = document.getElementById('resultDiv');
+    const resultDiv = document.getElementById("resultDiv");
 
     const data = results[semester];
 
     if (rollNumber === data.roll) {
 
-        document.getElementById('semesterTitle').innerText =
-            semester === "sem1"
-            ? "BCA 1st Semester Examination Result 2024"
-            : "BCA 2nd Semester Examination Result 2025";
+        document.getElementById("semesterTitle").innerText =
+
+        semester === "sem1"
+
+        ? "BCA 1st Semester Examination Result 2024"
+
+        : "BCA 2nd Semester Examination Result 2025";
 
         let subjectRows = "";
 
         data.subjects.forEach(sub => {
 
             subjectRows += `
+
             <tr>
                 <td>${sub[0]}</td>
                 <td>${sub[1]}</td>
@@ -190,6 +259,7 @@ function showResult() {
                 <td>${sub[4]}</td>
                 <td>${sub[5]}</td>
             </tr>
+
             `;
         });
 
@@ -210,6 +280,7 @@ function showResult() {
         <h3>Subject Wise Marks</h3>
 
         <table>
+
             <tr>
                 <th>Subject Name</th>
                 <th>IA</th>
@@ -223,19 +294,21 @@ function showResult() {
 
         </table>
 
+        <br>
+
         <p><strong>SGPA:</strong> ${data.sgpa}</p>
 
         <p><strong>Remarks:</strong> ${data.remarks}</p>
 
         `;
 
-        resultDiv.style.display = 'block';
+        resultDiv.style.display = "block";
 
     } else {
 
         alert("Result not found.");
 
-        resultDiv.style.display = 'none';
+        resultDiv.style.display = "none";
     }
 }
 
